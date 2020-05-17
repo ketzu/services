@@ -1,0 +1,13 @@
+version: '3'
+services:
+
+  fizzbuzz:
+    image: ketzu/fabi
+    restart: always
+    hostname: fizzbuzz.ketzu.net
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.fizzbuzz.rule=Host(`fizzbuzz.ketzu.net`)"
+      - "traefik.http.routers.fizzbuzz.entryPoints=websecure"
+      - "traefik.http.routers.fizzbuzz.tls=true"
+      - "traefik.http.routers.fizzbuzz.tls.certresolver=le"
