@@ -1,0 +1,34 @@
+version: '3'
+services:
+
+  mysql:
+    image: mysql
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    hostname: mysql.ketzu.net
+    env_file:
+      - ~/secrets/mysql.env
+    networks:
+      web:
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.mysql.rule=Host(`mysql.ketzu.net`)"
+      - "traefik.http.routers.mysql.entryPoints=websecure"
+      - "traefik.http.routers.mysql.tls=true"
+      - "traefik.http.routers.mysql.tls.certresolver=le"
+
+  adminer:
+    image: adminer
+    restart: always
+    networks:
+      web:
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.adminer.rule=Host(`adminer.ketzu.net`)"
+      - "traefik.http.routers.adminer.entryPoints=websecure"
+      - "traefik.http.routers.adminer.tls=true"
+      - "traefik.http.routers.adminer.tls.certresolver=le"
+      
+networks:
+  web:
+    external: true
