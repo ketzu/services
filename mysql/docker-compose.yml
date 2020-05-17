@@ -10,8 +10,6 @@ services:
       - ~/secrets/mysql.env
     networks:
       web:
-    volumes:
-      - mysql_storage:/var/lib/mysql
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.mysql.rule=Host(`mysql.ketzu.net`)"
@@ -30,10 +28,6 @@ services:
       - "traefik.http.routers.adminer.entryPoints=websecure"
       - "traefik.http.routers.adminer.tls=true"
       - "traefik.http.routers.adminer.tls.certresolver=le"
-
-
-volumes:
-  mysql_storage:
 
 networks:
   web:
