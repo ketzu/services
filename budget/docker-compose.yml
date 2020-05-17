@@ -6,7 +6,7 @@ services:
     restart: always
     hostname: budget.ketzu.net
     env_file:
-      - ~/secrets/strato_rb_db.env
+      - ~/secrets/budget.env
     networks:
       web:
     labels:
