@@ -1,0 +1,21 @@
+version: '3'
+services:
+
+  budget:
+    image: ketzu/budget
+    restart: always
+    hostname: budget.ketzu.net
+    env_file:
+      - ~/secrets/strato_rb_db.env
+    networks:
+      web:
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.budget.rule=Host(`budget.ketzu.net`)"
+      - "traefik.http.routers.budget.entryPoints=websecure"
+      - "traefik.http.routers.budget.tls=true"
+      - "traefik.http.routers.budget.tls.certresolver=le"
+
+networks:
+  web:
+    external: true
