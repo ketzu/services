@@ -5,6 +5,9 @@ services:
     image: ketzu/fabi
     restart: always
     hostname: fizzbuzz.ketzu.net
+    networks:
+      web:
+        # i guess this is required :D
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.fizzbuzz.rule=Host(`fizzbuzz.ketzu.net`)"
