@@ -3,6 +3,7 @@ version: '3'
 services:
   proxy:
     image: traefik
+    restart: unless-stopped
     networks:
       web:
     ports:

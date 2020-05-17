@@ -5,7 +5,7 @@
     rule = "HostRegexp(`{host:.+}`)"
     service = "noop"
   [http.routers.dashboard]
-    rule = "Host(`traefik.iypt.org`)"
+    rule = "Host(`traefik.ketzu.net`)"
     service="api@internal"
     middlewares = ["dash-auth"]
     [http.routers.dashboard.tls]
@@ -27,6 +27,9 @@
   [http.middlewares.httpsredirect.redirectScheme]
     scheme = "https"
 
+  [http.middlewares.dash-auth.basicauth]
+    users = ["ketzu:$2y$10$LHzCh/O8jeuOHNoUkZCvLuCxtZD.iXcNbTGEwmbrwDzCENEZAuYq6"]
+	
   [http.middlewares.security-headers.headers]
       # CORS
       #AccessControlAllowMethods = ["GET", "OPTIONS", "PUT"]
