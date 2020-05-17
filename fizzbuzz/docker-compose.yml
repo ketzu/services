@@ -14,3 +14,7 @@ services:
       - "traefik.http.routers.fizzbuzz.entryPoints=websecure"
       - "traefik.http.routers.fizzbuzz.tls=true"
       - "traefik.http.routers.fizzbuzz.tls.certresolver=le"
+
+networks:
+  web:
+    external: true
