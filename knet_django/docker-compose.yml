@@ -14,7 +14,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.knet.rule=Host(`www.ketzu.net`)"
-      - "traefik.http.routers.knet.entryPoints=web"
+      - "traefik.http.routers.knet.entryPoints=websecure"
       - "traefik.http.routers.knet.tls=true"
       - "traefik.http.routers.knet.tls.certresolver=le"
 
