@@ -1,0 +1,23 @@
+version: '3'
+services:
+
+  knet:
+    image: ketzu/knet
+    restart: always
+    hostname: www.ketzu.net
+    env_file:
+      - ~/secrets/knet.env
+    volumes:
+      - ~/data/knet.sqlite3:/db.sqlite3
+    networks:
+      web:
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.knet.rule=Host(`www.ketzu.net`)"
+      - "traefik.http.routers.knet.entryPoints=websecure"
+      - "traefik.http.routers.knet.tls=true"
+      - "traefik.http.routers.knet.tls.certresolver=le"
+
+networks:
+  web:
+    external: true
