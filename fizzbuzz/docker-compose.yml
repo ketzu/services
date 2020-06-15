@@ -2,7 +2,7 @@ version: '3'
 services:
 
   fizzbuzz:
-    image: ketzu/fabi
+    image: ketzu/fabi:latest
     restart: always
     hostname: fizzbuzz.ketzu.net
     networks:

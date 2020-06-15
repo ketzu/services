@@ -2,7 +2,7 @@ version: '3'
 services:
 
   budget:
-    image: ketzu/budget
+    image: ketzu/budget:latest
     restart: always
     hostname: budget.ketzu.net
     env_file:
