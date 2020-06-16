@@ -10,11 +10,11 @@ networks:
   back-tier:
 
 services:
-
   prometheus:
     image: prom/prometheus:v2.1.0
     volumes:
-      - ./prometheus/:/etc/prometheus/
+      - "./prometheus.yml:/etc/prometheus/prometheus.yml"
+      - "./alert.rules:/etc/prometheus/alert.rules"
       - prometheus_data:/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
@@ -56,7 +56,7 @@ services:
     ports:
       - 9093:9093
     volumes:
-      - ./alertmanager/:/etc/alertmanager/
+      - "./alertmanager.yml:/etc/alertmanager/config.yml"
     networks:
       - back-tier
     restart: always
@@ -86,9 +86,9 @@ services:
       - 3000:3000
     volumes:
       - grafana_data:/var/lib/grafana
-      - ./grafana/provisioning/:/etc/grafana/provisioning/
+      - ./grafana/:/etc/grafana/provisioning/
     env_file:
-      - ./grafana/config.monitoring
+      - ~/secrets/grafana.env
     networks:
       - back-tier
       - web
