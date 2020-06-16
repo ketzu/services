@@ -86,7 +86,6 @@ services:
       - 3000:3000
     volumes:
       - grafana_data:/var/lib/grafana
-      - ./grafana/:/etc/grafana/provisioning/
     env_file:
       - ~/secrets/grafana.env
     networks:
