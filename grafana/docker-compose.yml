@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  grafana:
+    image: grafana/grafana
+    user: "472"
+    ports:
+      - 3000:3000
+    volumes:
+      - grafana_data:/var/lib/grafana
+    env_file:
+      - ~/secrets/grafana.env
+    networks:
+      - back
+      - web
+    restart: always
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.grafana.rule=Host(`monitoring.ketzu.net`)"
+      - "traefik.http.routers.grafana.entryPoints=websecure"
+      - "traefik.http.routers.grafana.tls=true"
+      - "traefik.http.routers.grafana.tls.certresolver=le"
+
+networks:
+  web:
+    external: true
+  back:
+    external: true
+
+volumes:
+    grafana_data:

@@ -2,12 +2,12 @@ version: '3.7'
 
 volumes:
     prometheus_data: {}
-    grafana_data: {}
 
 networks:
   web:
     external: true
-  back-tier:
+  back:
+    external: true
 
 services:
   prometheus:
@@ -29,7 +29,7 @@ services:
     depends_on:
       - cadvisor
     networks:
-      - back-tier
+      - back
     restart: always
 
   node-exporter:
@@ -46,7 +46,7 @@ services:
     ports:
       - 9100:9100
     networks:
-      - back-tier
+      - back
     restart: always
 
   alertmanager:
@@ -56,7 +56,7 @@ services:
     volumes:
       - "./alertmanager.yml:/etc/alertmanager/config.yml"
     networks:
-      - back-tier
+      - back
     restart: always
     command:
       - '--config.file=/etc/alertmanager/config.yml'
@@ -72,28 +72,6 @@ services:
     ports:
       - 8080:8080
     networks:
-      - back-tier
+      - back
     restart: always
-
-  grafana:
-    image: grafana/grafana
-    user: "472"
-    depends_on:
-      - prometheus
-    ports:
-      - 3000:3000
-    volumes:
-      - grafana_data:/var/lib/grafana
-    env_file:
-      - ~/secrets/grafana.env
-    networks:
-      - back-tier
-      - web
-    restart: always
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.grafana.rule=Host(`monitoring.ketzu.net`)"
-      - "traefik.http.routers.grafana.entryPoints=websecure"
-      - "traefik.http.routers.grafana.tls=true"
-      - "traefik.http.routers.grafana.tls.certresolver=le"
 
