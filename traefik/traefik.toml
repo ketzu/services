@@ -16,9 +16,6 @@
 
   [entryPoints.websecure]
     address = ":443"
-	
-  [entryPoints.metrics]
-    address = ":8082"
 
 [certificatesResolvers.le.acme]
   email = "dm-trafik@ketzu.net"
@@ -29,7 +26,6 @@
     entryPoint = "web"
 
 
-
 ################################################################
 # Metrics configuration
 ################################################################
@@ -38,7 +34,6 @@
   [metrics.prometheus]
     addEntryPointsLabels = true
     addServicesLabels = true
-    entryPoint = "metrics"
 
 ################################################################
 # Traefik logs configuration
