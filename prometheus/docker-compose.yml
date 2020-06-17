@@ -1,11 +1,9 @@
-version: '3.7'
+version: '3'
 
 volumes:
-    prometheus_data: {}
+    prometheus_data:
 
 networks:
-  web:
-    external: true
   back:
     external: true
 
@@ -13,11 +11,11 @@ services:
   prometheus:
     image: prom/prometheus:v2.1.0
     volumes:
-      - "./prometheus.yml:/etc/prometheus/prometheus.yml"
-      - "./alert.rules:/etc/prometheus/alert.rules"
+      - "./prometheus.yml:/prometheus.yml"
+      - "./alert.rules:/alert.rules"
       - prometheus_data:/prometheus
     command:
-      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--config.file=/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
       - '--web.console.libraries=/usr/share/prometheus/console_libraries'
       - '--web.console.templates=/usr/share/prometheus/consoles'
@@ -54,12 +52,12 @@ services:
     ports:
       - 9093:9093
     volumes:
-      - "./alertmanager.yml:/etc/alertmanager/config.yml"
+      - "./alertmanager.yml:/alertmanager.yml"
     networks:
       - back
     restart: always
     command:
-      - '--config.file=/etc/alertmanager/config.yml'
+      - '--config.file=/alertmanager.yml'
       - '--storage.path=/alertmanager'
       
   cadvisor:
