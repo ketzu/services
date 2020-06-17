@@ -4,8 +4,6 @@ services:
   grafana:
     image: grafana/grafana
     user: "472"
-    ports:
-      - 3000:3000
     volumes:
       - grafana_data:/var/lib/grafana
     env_file:
