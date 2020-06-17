@@ -22,9 +22,3 @@ services:
       back:
       web:
     restart: always
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.prometheus.rule=Host(`prometheus.ketzu.net`)"
-      - "traefik.http.routers.prometheus.entryPoints=websecure"
-      - "traefik.http.routers.prometheus.tls=true"
-      - "traefik.http.routers.prometheus.tls.certresolver=le"
