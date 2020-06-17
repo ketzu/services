@@ -12,6 +12,7 @@ services:
       - ~/secrets/grafana.env
     networks:
       web:
+      back:
     restart: always
     labels:
       - "traefik.enable=true"
@@ -22,6 +23,8 @@ services:
 
 networks:
   web:
+    external: true
+  back:
     external: true
 
 volumes:
