@@ -9,7 +9,7 @@ networks:
 
 services:
   prometheus:
-    image: prom/prometheus:v2.1.0
+    image: prom/prometheus
     volumes:
       - "./prometheus.yml:/prometheus.yml"
       - prometheus_data:/prometheus
