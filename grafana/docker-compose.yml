@@ -11,8 +11,8 @@ services:
     env_file:
       - ~/secrets/grafana.env
     networks:
-      - back
-      - web
+      - back:
+      - web:
     restart: always
     labels:
       - "traefik.enable=true"

@@ -19,5 +19,5 @@ services:
     ports:
       - 9100:9100
     networks:
-      - back
+      - back:
     restart: always

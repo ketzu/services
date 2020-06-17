@@ -19,5 +19,5 @@ services:
     ports:
       - 9090:9090
     networks:
-      - back
+      - back:
     restart: always
