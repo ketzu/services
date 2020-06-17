@@ -4,7 +4,7 @@ volumes:
     prometheus_data:
 
 networks:
-  back:
+  web:
     external: true
 
 services:
@@ -19,5 +19,5 @@ services:
     ports:
       - 9090:9090
     networks:
-      - back:
+      - web:
     restart: always

@@ -1,7 +1,7 @@
 version: '3'
 
 networks:
-  back:
+  web:
     external: true
 
 services:
@@ -15,5 +15,5 @@ services:
     ports:
       - 8080:8080
     networks:
-      - back:
+      - web:
     restart: always

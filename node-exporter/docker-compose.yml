@@ -1,7 +1,7 @@
 version: '3'
 
 networks:
-  back:
+  web:
     external: true
 
 services:
@@ -19,5 +19,5 @@ services:
     ports:
       - 9100:9100
     networks:
-      - back:
+      - web:
     restart: always
