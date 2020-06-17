@@ -5,19 +5,6 @@ networks:
     external: true
 
 services:
-  cadvisor:
-    image: google/cadvisor
-    volumes:
-      - /:/rootfs:ro
-      - /var/run:/var/run:rw
-      - /sys:/sys:ro
-      - /var/lib/docker/:/var/lib/docker:ro
-    ports:
-      - 8080:8080
-    networks:
-      - back
-    restart: always
-
   node-exporter:
     image: prom/node-exporter
     volumes:
