@@ -1,7 +1,7 @@
 version: '3'
 
 #networks:
-#  back:
+#  web:
 #    external: true
 #
 #services:
@@ -17,5 +17,5 @@ version: '3'
 #      - --collector.filesystem.ignored-mount-points
 #      - "^/(sys|proc|dev|host|etc|rootfs/var/lib/docker/containers|rootfs/var/lib/docker/overlay2|rootfs/run/docker/netns|rootfs/var/lib/docker/aufs)($$|/)"
 #    networks:
-#      back:
+#      web:
 #    restart: always

@@ -1,7 +1,7 @@
 version: '3'
 
 networks:
-  back:
+  web:
     external: true
 
 services:
@@ -13,5 +13,5 @@ services:
       - /sys:/sys:ro
       - /var/lib/docker/:/var/lib/docker:ro
     networks:
-      back:
+      web:
     restart: always

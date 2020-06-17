@@ -4,8 +4,6 @@ volumes:
     prometheus_data:
 
 networks:
-  back:
-    external: true
   web:
     external: true
 
@@ -19,6 +17,5 @@ services:
       - '--config.file=/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
     networks:
-      back:
       web:
     restart: always
