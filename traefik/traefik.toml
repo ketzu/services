@@ -39,6 +39,7 @@
     addEntryPointsLabels = true
     addServicesLabels = true
     entryPoint = "metrics"
+    buckets = [0.1,0.3,1.2,5.0,30.0,120.0]
 
 ################################################################
 # Traefik logs configuration
