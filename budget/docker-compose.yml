@@ -8,7 +8,8 @@ services:
     env_file:
       - ~/secrets/budget.env
     networks:
-      web:
+      - mysql_net
+      - web
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.budget.rule=Host(`budget.ketzu.net`)"
@@ -18,4 +19,6 @@ services:
 
 networks:
   web:
+    external: true
+  mysql_net:
     external: true
