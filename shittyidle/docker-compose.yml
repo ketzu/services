@@ -9,12 +9,9 @@ services:
     ports:
       - 8080:80
     env_file:
-      - ~/secrets/shittyidle_wp.env
+      - ~/secrets/shittyidle.env
     environment:
       WORDPRESS_DB_HOST: mysql
-      WORDPRESS_DB_USER: exampleuser
-      WORDPRESS_DB_PASSWORD: examplepass
-      WORDPRESS_DB_NAME: exampledb
     networks:
       web:
     volumes:
