@@ -6,8 +6,6 @@ services:
     image: wordpress
     restart: always
     hostname: www.shittyidle.com
-    ports:
-      - 8080:80
     env_file:
       - ~/secrets/shittyidle.env
     environment:
