@@ -28,6 +28,8 @@ services:
 networks:
   web:
     external: true
+  mysql_net:
+    external: true
 
 volumes:
   knet_media_storage:
