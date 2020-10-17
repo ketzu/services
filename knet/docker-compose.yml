@@ -7,7 +7,7 @@ services:
     restart: always
     hostname: wp.ketzu.net
     env_file:
-      - ~/secrets/ketzunet.env
+      - ~/secrets/knet_wp.env
     environment:
       WORDPRESS_DB_HOST: mysql
     networks:
