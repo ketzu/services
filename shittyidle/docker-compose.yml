@@ -15,7 +15,7 @@ services:
       - mysql_net
     volumes:
       - shittyidle:/var/www/html
-      - type: ../helpers/docker-uploads.ini:/usr/local/etc/php/conf.d/docker-uploads.ini
+      - ../helpers/docker-uploads.ini:/usr/local/etc/php/conf.d/docker-uploads.ini
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.shittyidle.rule=Host(`www.shittyidle.com`)"
