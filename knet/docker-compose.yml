@@ -5,7 +5,7 @@ services:
   knetwp:
     image: wordpress
     restart: always
-    hostname: wp.ketzu.net
+    hostname: www.ketzu.net
     env_file:
       - ~/secrets/knet_wp.env
     environment:
@@ -19,11 +19,25 @@ services:
       - ../helpers/docker-uploads.ini:/usr/local/etc/php/conf.d/docker-uploads.ini
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.ketzuwp.rule=Host(`wp.ketzu.net`)"
+      - "traefik.http.routers.ketzuwp.rule=Host(`www.ketzu.net`)"
       - "traefik.http.routers.ketzuwp.entryPoints=websecure"
       - "traefik.http.routers.ketzuwp.tls=true"
       - "traefik.http.routers.ketzuwp.tls.certresolver=le"
 
+  media:
+    image: nginx:latest
+    restart: always
+    hostname: media.ketzu.net
+    volumes:
+      - knet_media_storage:/usr/share/nginx/html:ro
+    networks:
+      web:
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.knet_media.rule=Host(`media.ketzu.net`)"
+      - "traefik.http.routers.knet_media.entryPoints=websecure"
+      - "traefik.http.routers.knet_media.tls=true"
+      - "traefik.http.routers.knet_media.tls.certresolver=le"
 
 networks:
   web:
