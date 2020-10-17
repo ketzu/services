@@ -40,3 +40,4 @@ networks:
 
 volumes:
   knet_media_storage:
+    external: true

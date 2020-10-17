@@ -33,4 +33,6 @@ networks:
 
 volumes:
   knet_media_storage:
+    external: true
   knet_wp:
+    external: true
