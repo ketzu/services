@@ -1,0 +1,34 @@
+version: '3.1'
+
+services:
+
+  knetwp:
+    image: wordpress
+    restart: always
+    hostname: wp.ketzu.net
+    env_file:
+      - ~/secrets/ketzunet.env
+    environment:
+      WORDPRESS_DB_HOST: mysql
+    networks:
+      - web
+      - mysql_net
+    volumes:
+      - knet_wp:/var/www/html
+      - knet_media_storage:/media
+      - ../helpers/docker-uploads.ini:/usr/local/etc/php/conf.d/docker-uploads.ini
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.shittyidle.rule=Host(`wp.ketzu.net`)"
+      - "traefik.http.routers.shittyidle.entryPoints=websecure"
+      - "traefik.http.routers.shittyidle.tls=true"
+      - "traefik.http.routers.shittyidle.tls.certresolver=le"
+
+
+networks:
+  web:
+    external: true
+
+volumes:
+  knet_media_storage:
+  knet_wp:
