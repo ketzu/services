@@ -15,7 +15,7 @@ services:
       - mysql_net
     volumes:
       - knet_wp:/var/www/html
-      - knet_media_storage:/media
+      - knet_media_storage:/var/www/html/wp-content/uploads
       - ../helpers/docker-uploads.ini:/usr/local/etc/php/conf.d/docker-uploads.ini
     labels:
       - "traefik.enable=true"
