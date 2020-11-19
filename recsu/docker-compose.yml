@@ -18,7 +18,7 @@ services:
       - ../helpers/docker-uploads.ini:/usr/local/etc/php/conf.d/docker-uploads.ini
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.recsuwp.rule=Host(`www.recsu.de`)"
+      - "traefik.http.routers.recsuwp.rule=Host(`www.recsu.de`, `recsu.de`)"
       - "traefik.http.routers.recsuwp.entryPoints=websecure"
       - "traefik.http.routers.recsuwp.tls=true"
       - "traefik.http.routers.recsuwp.tls.certresolver=le"
