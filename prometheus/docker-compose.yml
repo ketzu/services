@@ -19,3 +19,7 @@ services:
     networks:
       web:
     restart: always
+
+volumes:
+  prometheus_data:
+    external: true
