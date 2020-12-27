@@ -17,9 +17,6 @@
   [entryPoints.websecure]
     address = ":443"
 
-  [entryPoints.metrics]
-    address = ":8082"
-
 [certificatesResolvers.le.acme]
   email = "dm-trafik@ketzu.net"
   storage = "/acme/acme.json"
@@ -27,7 +24,6 @@
   [certificatesResolvers.le.acme.httpChallenge]
     # used during the challenge
     entryPoint = "web"
-
 
 
 ################################################################
