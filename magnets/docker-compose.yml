@@ -1,0 +1,22 @@
+version: '3'
+services:
+
+  magnets:
+    image: mbrenneriv3/magnetfriends
+    restart: always
+    hostname: magnets.shittyidle.com
+    ports:
+        8080:80
+    networks:
+      web:
+        # i guess this is required :D
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.magnets.rule=Host(`magnets.shittyidle.com`)"
+      - "traefik.http.routers.magnets.entryPoints=websecure"
+      - "traefik.http.routers.magnets.tls=true"
+      - "traefik.http.routers.magnets.tls.certresolver=le"
+
+networks:
+  web:
+    external: true
