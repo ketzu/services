@@ -6,7 +6,7 @@ services:
     restart: always
     hostname: magnets.shittyidle.com
     ports:
-        8080:80
+       - 8080:80
     networks:
       web:
         # i guess this is required :D
