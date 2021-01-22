@@ -5,8 +5,6 @@ services:
     image: mbrenneriv3/magnetfriends:master
     restart: always
     hostname: magnets.shittyidle.com
-    ports:
-       - 8080:80
     networks:
       web:
         # i guess this is required :D
@@ -16,6 +14,7 @@ services:
       - "traefik.http.routers.magnets.entryPoints=websecure"
       - "traefik.http.routers.magnets.tls=true"
       - "traefik.http.routers.magnets.tls.certresolver=le"
+      - "traefik.http.services.magnets.loadbalancer.server.port=8080"
 
 networks:
   web:
