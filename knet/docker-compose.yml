@@ -18,7 +18,7 @@ services:
       - ../helpers/docker-uploads.ini:/usr/local/etc/php/conf.d/docker-uploads.ini
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.ketzuwp.rule=Host(`www.ketzu.net`)"
+      - "traefik.http.routers.ketzuwp.rule=Host(`www.ketzu.net`,`ketzu.net`)"
       - "traefik.http.routers.ketzuwp.entryPoints=websecure"
       - "traefik.http.routers.ketzuwp.tls=true"
       - "traefik.http.routers.ketzuwp.tls.certresolver=le"
