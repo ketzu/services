@@ -12,16 +12,13 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data
-    ports:
-      - 8000:8000
-      - 9000:80
-      - 9443:443
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.portainer.rule=Host(`portainer.ketzu.net`)"
       - "traefik.http.routers.portainer.entryPoints=websecure"
       - "traefik.http.routers.portainer.tls=true"
       - "traefik.http.routers.portainer.tls.certresolver=le"
+      - "traefik.http.services.portainer.loadbalancer.server.port=9000"
     networks:
       web:
     restart: always
