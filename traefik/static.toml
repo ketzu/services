@@ -48,3 +48,6 @@
       #ReferrerPolicy = "same-origin"
       #FeaturePolicy = "vibrate 'self'"
       STSSeconds = 31536000
+
+[pilot]
+    token = "49e518c6-22a4-4688-9e60-ff461b840d87"
