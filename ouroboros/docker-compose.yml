@@ -13,7 +13,6 @@ services:
       - SELF_UPDATE=true
       #- IGNORE=mongo influxdb postgres mariadb
       - TZ=Europe/Berlin
-    env_file: ~/secrets/ouroboros.env
     restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
