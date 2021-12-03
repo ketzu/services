@@ -6,8 +6,6 @@ services:
     image: wordpress
     restart: always
     hostname: www.shittyidle.com
-    env_file:
-      - ~/secrets/shittyidle.env
     environment:
       WORDPRESS_DB_HOST: mysql
     networks:

@@ -6,8 +6,6 @@ services:
     image: wordpress
     restart: always
     hostname: www.recsu.de
-    env_file:
-      - ~/secrets/recsu_wp.env
     environment:
       WORDPRESS_DB_HOST: mysql
     networks:
