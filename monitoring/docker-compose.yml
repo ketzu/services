@@ -61,3 +61,5 @@ networks:
 volumes:
     grafana_data:
         external: true
+    prometheus_data:
+        external: true
