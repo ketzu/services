@@ -5,8 +5,6 @@ services:
     image: ketzu/budget:latest
     restart: always
     hostname: budget.ketzu.net
-    env_file:
-      - ~/secrets/budget.env
     networks:
       - mysql_net
       - web
