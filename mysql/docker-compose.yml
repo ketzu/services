@@ -10,6 +10,8 @@ services:
       - mysql_net
     volumes:
       - mysql_storage:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.mysql.rule=Host(`mysql.ketzu.net`)"

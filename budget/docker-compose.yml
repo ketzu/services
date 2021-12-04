@@ -14,6 +14,12 @@ services:
       - "traefik.http.routers.budget.entryPoints=websecure"
       - "traefik.http.routers.budget.tls=true"
       - "traefik.http.routers.budget.tls.certresolver=le"
+    environment:
+      - DB_SERVER
+      - DB_NAME
+      - DB_USER
+      - DB_PASSWORD
+
 
 networks:
   web:

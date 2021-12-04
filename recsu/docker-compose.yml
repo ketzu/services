@@ -11,6 +11,11 @@ services:
     networks:
       - web
       - mysql_net
+    environment:
+      - WORDPRESS_DB_HOST
+      - WORDPRESS_DB_NAME
+      - WORDPRESS_DB_USER
+      - WORDPRESS_DB_PASSWORD
     volumes:
       - recsu_wp:/var/www/html
       - ../helpers/docker-uploads.ini:/usr/local/etc/php/conf.d/docker-uploads.ini
