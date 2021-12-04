@@ -30,7 +30,7 @@ services:
   prometheus:
     image: prom/prometheus
     volumes:
-      - "/home/david/services/monitoring/prometheus.yml:/prometheus.yml"
+      - "${PROMETHEUS_YML_LOCATION}:/prometheus.yml"
       - prometheus_data:/prometheus
     command:
       - '--config.file=/prometheus.yml'
