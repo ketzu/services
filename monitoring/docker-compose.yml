@@ -10,6 +10,10 @@ services:
       - /var/lib/docker/:/var/lib/docker:ro
     networks:
       web:
+    command:
+      - '-docker_only=true'
+      - '-housekeeping_interval=30s'
+      - '-disable_metrics=disk'
     restart: always
     
   node-exporter:
