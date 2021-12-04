@@ -3,7 +3,8 @@ version: '3.1'
 services:
 
   knetwp:
-    image: wordpress
+    build: ../wordpress
+    image: wp_base
     restart: always
     hostname: www.ketzu.net
     environment:
@@ -18,7 +19,6 @@ services:
       - WORDPRESS_DB_PASSWORD
     volumes:
       - knet_wp:/var/www/html
-      - config:/config:ro
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.ketzuwp.rule=Host(`www.ketzu.net`,`ketzu.net`)"
@@ -34,6 +34,4 @@ networks:
 
 volumes:
   knet_wp:
-    external: true
-  config:
     external: true

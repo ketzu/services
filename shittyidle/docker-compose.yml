@@ -3,7 +3,8 @@ version: '3.1'
 services:
 
   shittyidle:
-    image: wordpress
+    build: ../wordpress
+    image: wp_base
     restart: always
     hostname: www.shittyidle.com
     environment:
@@ -13,7 +14,6 @@ services:
       - mysql_net
     volumes:
       - shittyidle_wp:/var/www/html
-      - config:/config:ro
     environment:
       - WORDPRESS_DB_HOST
       - WORDPRESS_DB_NAME
@@ -28,8 +28,6 @@ services:
 
 volumes:
   shittyidle_wp:
-    external: true
-  config:
     external: true
 
 networks:
