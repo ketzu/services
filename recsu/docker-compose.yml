@@ -18,7 +18,7 @@ services:
       - WORDPRESS_DB_PASSWORD
     volumes:
       - recsu_wp:/var/www/html
-      - config:/home/david/services/helpers/config:ro
+      - config:/usr/local/etc/php/conf.d/config:ro
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.recsuwp.rule=Host(`www.recsu.de`, `recsu.de`)"
