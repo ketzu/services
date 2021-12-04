@@ -13,7 +13,7 @@ services:
       - mysql_net
     volumes:
       - shittyidle_wp:/var/www/html
-      - ${DOCKER_UPLOADS_INI_HELPER}:/usr/local/etc/php/conf.d/docker-uploads.ini
+      - config:/config:ro
     environment:
       - WORDPRESS_DB_HOST
       - WORDPRESS_DB_NAME
