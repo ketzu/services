@@ -29,6 +29,8 @@ services:
 volumes:
   shittyidle_wp:
     external: true
+  config:
+    external: true
 
 networks:
   web:

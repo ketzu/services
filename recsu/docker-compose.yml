@@ -38,3 +38,5 @@ networks:
 volumes:
   recsu_wp:
     external: true
+  config:
+    external: true

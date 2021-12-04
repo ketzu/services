@@ -35,3 +35,5 @@ networks:
 volumes:
   knet_wp:
     external: true
+  config:
+    external: true
