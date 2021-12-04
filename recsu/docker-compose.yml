@@ -18,7 +18,7 @@ services:
       - WORDPRESS_DB_PASSWORD
     volumes:
       - recsu_wp:/var/www/html
-      - ../helpers/docker-uploads.ini:/usr/local/etc/php/conf.d/docker-uploads.ini
+      - ${DOCKER_UPLOADS_INI_HELPER}:/usr/local/etc/php/conf.d/docker-uploads.ini
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.recsuwp.rule=Host(`www.recsu.de`, `recsu.de`)"
